@@ -6,7 +6,6 @@ const Dashboard = ({ users, roles }) => {
   const totalUsers = users.length;
   const activeUsers = users.filter(user => user.status === 'Active').length;
   const inactiveUsers = users.filter(user => user.status === 'Inactive').length;
-  const totalRoles = roles.length;
 
   return (
     <div className="dashboard">
