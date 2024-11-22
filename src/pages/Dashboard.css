@@ -1,0 +1,47 @@
+.dashboard {
+    text-align: center;
+    margin: 20px;
+  }
+  
+  .overview {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 40px;
+  }
+  
+  .overview-card {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 150px;
+  }
+  
+  .overview-card h3 {
+    margin-bottom: 10px;
+  }
+  
+  .overview-card p {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .dashboard-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .dashboard-actions .btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+  
+  .dashboard-actions .btn:hover {
+    background-color: #0056b3;
+  }
+  
