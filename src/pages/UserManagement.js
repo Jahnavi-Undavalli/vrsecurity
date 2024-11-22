@@ -4,6 +4,12 @@ import './UserManagement.css';
 const UserManagement = ({ users, setUsers }) => {
   const [editingUserId, setEditingUserId] = useState(null);
   const [editForm, setEditForm] = useState({ name: '', role: '', status: '' });
+  
+  const [newUser, setNewUser] = useState({
+    name: '',
+    role: 'User',
+    status: 'Active',
+  });
 
   const startEditing = (user) => {
     setEditingUserId(user.id);
@@ -29,9 +35,43 @@ const UserManagement = ({ users, setUsers }) => {
     setUsers(users.filter((user) => user.id !== id));
   };
 
+  const handleAddUser = (e) => {
+    e.preventDefault();
+    const newUserWithId = { ...newUser, id: Date.now() }; // Add a unique ID to the new user
+    setUsers([...users, newUserWithId]);
+    setNewUser({ name: '', role: 'User', status: 'Active' }); // Reset the form
+  };
+
   return (
     <div>
       <h2>User Management</h2>
+
+      {/* Add New User Form */}
+      <form onSubmit={handleAddUser}>
+        <input
+          type="text"
+          placeholder="Enter user's name"
+          value={newUser.name}
+          onChange={(e) => setNewUser({ ...newUser, name: e.target.value })}
+          required
+        />
+        <select
+          value={newUser.role}
+          onChange={(e) => setNewUser({ ...newUser, role: e.target.value })}
+        >
+          <option value="User">User</option>
+          <option value="Admin">Admin</option>
+        </select>
+        <select
+          value={newUser.status}
+          onChange={(e) => setNewUser({ ...newUser, status: e.target.value })}
+        >
+          <option value="Active">Active</option>
+          <option value="Inactive">Inactive</option>
+        </select>
+        <button type="submit">Add User</button>
+      </form>
+
       <table>
         <thead>
           <tr>
